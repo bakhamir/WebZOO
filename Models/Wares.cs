@@ -1,0 +1,11 @@
+﻿namespace ZooWeb.Models
+{
+	public class Wares
+	{
+		public int id { get; set; }
+		public string name { get; set; }
+		public int price { get; set; }
+		public string imgUrl { get; set; }
+
+	}
+}
