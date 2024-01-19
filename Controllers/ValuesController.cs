@@ -155,7 +155,7 @@ namespace WebApplication2.Controllers
                             user.name = sqlDataReader.GetString(1);
                             user.phone = sqlDataReader.GetString(2);
                             user.roleId = sqlDataReader.GetInt32(3);
-                            
+
                             users.Add(user);
                         }
                     }
@@ -356,6 +356,128 @@ namespace WebApplication2.Controllers
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+        [HttpPost("/CreateSalesman")]
+        public async Task<bool> CreateSalesman()
+        {
+            try
+            {
+                bool result = false;
+                string connectionString = @"Server=207-4;Database=newZoo;Trusted_Connection=True;TrustServerCertificate=True";
+                string query = "insert into salesman values ( 'salename','rolerole')";
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    await cmd.ExecuteNonQueryAsync();
+                    result =  true;
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+        [HttpPost("/CreateWares")]
+        public async Task<bool> CreateWares()
+        {
+            try
+            {
+                bool result = false;
+                string connectionString = @"Server=207-4;Database=newZoo;Trusted_Connection=True;TrustServerCertificate=True";
+                string query = "insert into Wares values ( 'wares',12313,'imgimg')";
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    await cmd.ExecuteNonQueryAsync();
+                    result =  true;
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+        [HttpPost("/CreateRole")]
+        public async Task<bool> CreateRole()
+        {
+            try
+            {
+                bool result = false;
+                string connectionString = @"Server=207-4;Database=newZoo;Trusted_Connection=True;TrustServerCertificate=True";
+                string query = "insert into Roles values ( 'name')";
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    await cmd.ExecuteNonQueryAsync();
+                    result =  true;
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        [HttpPost("/CreateUsers")]
+        public async Task<bool> CreateUsers()
+        {
+            try
+            {
+                bool result = false;
+                string connectionString = @"Server=207-4;Database=newZoo;Trusted_Connection=True;TrustServerCertificate=True";
+                string query = "insert into Users values ('name','phone',2)";
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    await cmd.ExecuteNonQueryAsync();
+                    result =  true;
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
+        [HttpPost("/CreateOrders")]
+        public async Task<bool> CreateOrders()
+        {
+            try
+            {
+                bool result = false;
+                string connectionString = @"Server=207-4;Database=newZoo;Trusted_Connection=True;TrustServerCertificate=True";
+                string query = "insert into orders values (1,1,1)";
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                    await cmd.ExecuteNonQueryAsync();
+                    result =  true;
+                }
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
             }
         }
     }
